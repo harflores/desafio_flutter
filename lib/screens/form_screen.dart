@@ -19,8 +19,7 @@ class FormScreen extends StatelessWidget {
       appBar: AppBar(title: const Text("Formulario")),
       body: GestureDetector(
         onTap: () {
-          focusNode.unfocus();
-          formKey.currentState!.reset();
+          focusNode.requestFocus();
         },
         child: SingleChildScrollView(
           child: Center(
@@ -56,7 +55,7 @@ class FormScreen extends StatelessWidget {
                             }
                             return null;
                           },
-                          keyboardType: TextInputType.number,
+                          keyboardType: TextInputType.text,
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9kK.-]')), // Permite números, "k", "K" y guion
                             LengthLimitingTextInputFormatter(12), // Limita la longitud total a 12 caracteres
