@@ -17,13 +17,11 @@ class _ResultScreenState extends State<ResultScreen> {
     double heigthSizeBox = 20;
     return WillPopScope(
       onWillPop: () async {
-        rcontroller.cleanAll();
-        Get.delete();
-        Get.back();
-        return true;
+        return false;
       },
       child: Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title: const Text("Resultado"),
           ),
           body: Container(
@@ -73,6 +71,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     width: 200,
                     child: ElevatedButton(
                       onPressed: () {
+                        rcontroller.cleanAll();
                         Get.deleteAll();
                         Get.offAll(() => const HomeScreen());
                       },
